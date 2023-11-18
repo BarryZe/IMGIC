@@ -99,19 +99,6 @@
                </a>
             </li>
             <li>
-
-               <a href="#" data-drawer-target="drawer-form" data-drawer-show="drawer-form" aria-controls="drawer-form"
-                  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                  <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                  </svg>
-                  <span class="flex-1 ms-3 whitespace-nowrap">Search</span>
-               </a>
-
-            </li>
-            <li>
                <a href="#" data-modal-target="get-song-modal" data-modal-toggle="get-song-modal"
                   class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                   <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true"
@@ -135,7 +122,7 @@
                <a href="#"
                   class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
-                     <img src="static/uploads/pic.png">
+                     <img src="static/uploads/Image-by-Nataliia-Nedelina-via-Getty-Images-on-Canva-Pro.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
                </a>
@@ -144,7 +131,7 @@
                <a href="#"
                   class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
-                     <img src="static/uploads/pic.png">
+                     <img src="static/uploads/Image-by-Nataliia-Nedelina-via-Getty-Images-on-Canva-Pro.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
                </a>
@@ -153,7 +140,7 @@
                <a href="#"
                   class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
-                     <img src="static/uploads/pic.png">
+                     <img src="static/uploads/Image-by-Nataliia-Nedelina-via-Getty-Images-on-Canva-Pro.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
                </a>
@@ -162,7 +149,7 @@
                <a href="#"
                   class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
-                     <img src="static/uploads/pic.png">
+                     <img src="static/uploads/Image-by-Nataliia-Nedelina-via-Getty-Images-on-Canva-Pro.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
                </a>
@@ -216,7 +203,7 @@
             <!-- Modal footer -->
             <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                <!-- <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"> -->
-               <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" onclick="StartCamera();"
+               <button data-modal-hide="get-song-modal" data-modal-target="popup-modal" data-modal-toggle="popup-modal" onclick="StartCamera();"
                   type="button"
                   class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Take
                   Photo</button>
@@ -256,7 +243,7 @@
                   <canvas id="myCanvas" width="100%" height="240"> </canvas>
 
                </div>
-               <button type="button" onclick="freezeFrame();"
+               <button data-modal-hide="popup-modal" type="button" onclick="freezeFrame();"
                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
@@ -356,38 +343,13 @@
                            console.error('Error uploading image:', error);
                         });
                   }, 'image/png');
-                  // canvas.toBlob(function (blob) {
-                  //    // Create FormData and append the image Blob
-                  //    const formData = new FormData();
-                  //    formData.append('image', blob, 'captured_image.png');
-
-                  //    // Make a POST request to your server
-                  //    const requestOptions = {
-                  //       headers: {
-                  //          "Content-Type": blob.contentType,
-                  //       },
-                  //       mode: "no-cors",
-                  //       method: "POST",
-                  //       body: formData,
-                  //    };
-                  //    fetch('/upload', requestOptions)
-                  //       .then(function (response) {
-                  //          // Handle the response from the server
-                  //          console.log('Image uploaded:', response);
-                  //       })
-                  //       .catch(function (error) {
-                  //          console.error('Error uploading image:', error);
-                  //       });
-                  // }, 'image/png');
-
-
                })
                .catch(error => {
                   console.error('Error grabbing frame:', error);
                });
          }
       }
-      
+
       function revokeCameraPermission() {
          if (currentStream) {
             currentStream.getTracks().forEach(track => track.stop());
@@ -412,6 +374,8 @@
             body: formData,
          };
          console.log(requestOptions);
+
+         FlowbiteInstances.getInstance('Modal','get-song-modal').hide();
 
          fetch("/upload", requestOptions).then(
             (response) => {
@@ -457,26 +421,26 @@
 </body>
 
 
-   <style>
-      .gallery-block {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         overflow: hidden;
-      }
+<style>
+   .gallery-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+   }
 
-      .gallery-block img {
-         /* background-size: cover;
+   .gallery-block img {
+      /* background-size: cover;
          background-repeat: no-repeat;
          background-position: center; */
-         width: 80%;
-         padding: 40px 0px 150px 0px;
+      width: 80%;
+      padding: 40px 0px 150px 0px;
 
-      }
+   }
 
-      .card-container {
-         margin: 0px 15px 0px 15px;
-      }
-   </style>
+   .card-container {
+      margin: 0px 15px 0px 15px;
+   }
+</style>
 
 </html>
