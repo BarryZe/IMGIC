@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>IMGIC</title>
    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+   <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
 </head>
 
 <body>
@@ -52,7 +53,7 @@
                            Ctrl + Z Warriors
                         </p>
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                           Codejam 23
+                           CodeJam 13
                         </p>
                      </div>
                      <ul class="py-1" role="none">
@@ -99,6 +100,16 @@
             </li>
             <li>
 
+               <a href="#" data-drawer-target="drawer-form" data-drawer-show="drawer-form" aria-controls="drawer-form"
+                  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Search</span>
+               </a>
+
             </li>
             <li>
                <a href="#" data-modal-target="get-song-modal" data-modal-toggle="get-song-modal"
@@ -116,130 +127,45 @@
    </aside>
 
 
-   <div class="p-4 sm:ml-64">
-      <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
 
-         <div class="grid grid-cols-3 gap-4 mb-4">
-            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
+   <div class="p-4 sm:ml-64">
+      <div class="p-4 mt-14">
+         <div id="gallery" class="grid grid-cols-4 md:grid-cols-3 gap-4">
+            <div class="card-container">
+               <a href="#"
+                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                  <div class="gallery-block">
+                     <img src="static/uploads/pic.png">
+                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
+                  </div>
+               </a>
             </div>
-            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
+            <div class="card-container">
+               <a href="#"
+                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                  <div class="gallery-block">
+                     <img src="static/uploads/pic.png">
+                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
+                  </div>
+               </a>
             </div>
-            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
+            <div class="card-container">
+               <a href="#"
+                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                  <div class="gallery-block">
+                     <img src="static/uploads/pic.png">
+                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
+                  </div>
+               </a>
             </div>
-         </div>
-         <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                     d="M9 1v16M1 9h16" />
-               </svg>
-            </p>
-         </div>
-         <div class="grid grid-cols-2 gap-4 mb-4">
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-         </div>
-         <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-            <p class="text-2xl text-gray-400 dark:text-gray-500">
-               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                     d="M9 1v16M1 9h16" />
-               </svg>
-            </p>
-         </div>
-         <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
-            </div>
-            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-               <p class="text-2xl text-gray-400 dark:text-gray-500">
-                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                     viewBox="0 0 18 18">
-                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 1v16M1 9h16" />
-                  </svg>
-               </p>
+            <div class="card-container">
+               <a href="#"
+                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                  <div class="gallery-block">
+                     <img src="static/uploads/pic.png">
+                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
+                  </div>
+               </a>
             </div>
          </div>
       </div>
@@ -279,10 +205,11 @@
                               d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                         </svg>
                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
-                              upload</span> or drag and drop</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                              upload</span></p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
                      </div>
-                     <input id="dropzone-file" type="file" class="hidden" />
+                     <input id="dropzone-file" type="file" class="hidden" oninput="upload_file()"
+                        ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" />
                   </label>
                </div>
             </div>
@@ -460,6 +387,7 @@
                });
          }
       }
+      
       function revokeCameraPermission() {
          if (currentStream) {
             currentStream.getTracks().forEach(track => track.stop());
@@ -469,12 +397,86 @@
             camera = false;
          }
       }
+
+      function upload_file() {
+         const formData = new FormData();
+         const files = document.getElementById("dropzone-file");
+         formData.append("file", files.files[0]);
+         const requestOptions = {
+            headers: {
+               "Content-Type": files.files[0].contentType,
+            },
+            mode: "no-cors",
+            method: "POST",
+            files: files.files[0],
+            body: formData,
+         };
+         console.log(requestOptions);
+
+         fetch("/upload", requestOptions).then(
+            (response) => {
+               console.log(response.data);
+            }
+         );
+      }
+
+      function playAudio(name) {
+         var audio_filename = 'static/output/' + name + '.wav';
+         var audio = new Audio(audio_filename);
+         audio.play();
+      }
+
+      function dragOverHandler(event) {
+         event.preventDefault();
+      }
+
+      function dropHandler(ev) {
+         console.log("File(s) dropped");
+         ev.preventDefault();
+
+         if (ev.dataTransfer.items) {
+            // Use DataTransferItemList interface to access the file(s)
+            [...ev.dataTransfer.items].forEach((item, i) => {
+               // If dropped items aren't files, reject them
+               if (item.kind === "file") {
+                  const file = item.getAsFile();
+                  console.log(`… file[${i}].name = ${file.name}`);
+               }
+            });
+         } else {
+            // Use DataTransfer interface to access the file(s)
+            [...ev.dataTransfer.files].forEach((file, i) => {
+               console.log(`… file[${i}].name = ${file.name}`);
+            });
+         }
+      }
    </script>
 
-   <form action="/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" accept=".png, .jpg, .jpeg">
-      <input type="submit" value="Upload">
-   </form>
 </body>
+
+</body>
+
+
+   <style>
+      .gallery-block {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         overflow: hidden;
+      }
+
+      .gallery-block img {
+         /* background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center; */
+         width: 80%;
+         padding: 40px 0px 150px 0px;
+
+      }
+
+      .card-container {
+         margin: 0px 15px 0px 15px;
+      }
+   </style>
 
 </html>
