@@ -9,7 +9,13 @@ from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predi
 from keras.preprocessing import image
 import numpy as np
 from werkzeug.utils import secure_filename
+from spotifyrequests import get_token, get_song_list
+from dotenv import load_dotenv
 
+load_dotenv("client_info.env")
+client_id = os.getenv('client_id')
+client_secret = os.getenv('client_secret')
+CLIENT_TOKEN = ''
 UPLOAD_FOLDER = 'uploads'
 model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
 
@@ -36,6 +42,7 @@ def generate_keywords(image_path):
 
 @app.route('/')
 def index():
+    CLIENT_TOKEN = get_token(client_id, client_secret)
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
@@ -51,6 +58,7 @@ def upload_file():
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filename)
         results = generate_keywords(filename)
+        songs = get_song_list(CLIENT_TOKEN, results[0] + ", " + results[1] + ", " + results[2])
         # return redirect(url_for('index'))
         return str(results)
 
