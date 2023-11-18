@@ -1,275 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMGIC</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>IMGIC</title>
+   <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 </head>
+
 <body>
 
-    <!-- NAV BAR -->
+   <!-- NAV BAR -->
 
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-        <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
+   <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+      <div class="px-3 py-3 lg:px-5 lg:pl-3">
+         <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
-            <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                <span class="sr-only">Open sidebar</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-                </svg>
-            </button>
-            <div class="flex ms-2 md:me-24">
-                <img src="static/assets/imgic-logo.png" class="h-8 me-3" alt="IMGIC Logo" />
-                <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">IMGIC</span>
-            </div>
+               <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+                  type="button"
+                  class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                  <span class="sr-only">Open sidebar</span>
+                  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                     </path>
+                  </svg>
+               </button>
+               <div class="flex ms-2 md:me-24">
+                  <img src="static/assets/imgic-logo.png" class="h-8 me-3" alt="IMGIC Logo" />
+                  <span
+                     class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">IMGIC</span>
+               </div>
             </div>
             <div class="flex items-center">
-                <div class="flex items-center ms-3">
-                <div>
-                    <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="../static/assets/codejam-logo.png" alt="user photo">
-                    </button>
-                </div>
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-                    <div class="px-4 py-3" role="none">
-                    <p class="text-sm text-gray-900 dark:text-white" role="none">
-                        Ctrl + Z Warriors
-                    </p>
-                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                        Codejam 23
-                    </p>
-                    </div>
-                    <ul class="py-1" role="none">
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"> Home </a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </nav>
-
-    <!-- SIDE BAR -->
-
-    <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-        <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-            <ul class="space-y-2 font-medium">
-            <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
-                      </svg>
-                    <span class="ms-3">Home</span>
-                </a>
-            </li>
-            <li>
-
-            </li>
-            <li>
-                <a href="#" data-modal-target="get-song-modal" data-modal-toggle="get-song-modal" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                      </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Get a Song</span>
-                </a>
-            </li>
-            </ul>
-        </div>
-    </aside>
-
-
-<div class="p-4 sm:ml-64">
-    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-          
-       <div class="grid grid-cols-3 gap-4 mb-4">
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-       </div>
-       <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-          <p class="text-2xl text-gray-400 dark:text-gray-500">
-             <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-             </svg>
-          </p>
-       </div>
-       <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-       </div>
-       <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-          <p class="text-2xl text-gray-400 dark:text-gray-500">
-             <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-             </svg>
-          </p>
-       </div>
-       <div class="grid grid-cols-2 gap-4">
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-       </div>
-    </div>
- </div>
-  
-    <!-- Create Song Modal -->
-    <div id="get-song-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-3xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-center text-xl font-bold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Get a Song</h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="get-song-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
-                    <div class="flex items-center justify-center w-full">
-                        <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                            </div>
-                            <input id="dropzone-file" type="file" class="hidden" />
-                        </label>
-                    </div> 
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <!-- <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"> -->
-                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"  onclick="StartCamera();" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Take Photo</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Webcam pop-up -->
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-      Toggle modal
-      </button>
-      
-      <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-          <div class="relative p-4 w-full max-w-3xl max-h-full">
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                  <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
-                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                      </svg>
-                      <span class="sr-only">Close modal</span>
-                  </button>
-                  <div class="p-4 md:p-5 text-center">
-                     <video autoplay="true" id="camera" width="full" height="240">
-                        
-                     </video>
-                     <canvas id="myCanvas" width="full" height="240"></canvas>
-                     <button type="button" onclick="snapshot();" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                           <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
-                           <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 3h-2l-.447-.894A2 2 0 0 0 12.764 1H7.236a2 2 0 0 0-1.789 1.106L5 3H3a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2Z"/>
-                         </svg>
-                        <span class="sr-only">Icon description</span>
+               <div class="flex items-center ms-3">
+                  <div>
+                     <button type="button"
+                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="w-8 h-8 rounded-full" src="../static/assets/codejam-logo.png" alt="user photo">
                      </button>
-
                   </div>
-              </div>
-          </div>
+                  <div
+                     class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                     id="dropdown-user">
+                     <div class="px-4 py-3" role="none">
+                        <p class="text-sm text-gray-900 dark:text-white" role="none">
+                           Ctrl + Z Warriors
+                        </p>
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                           Codejam 23
+                        </p>
+                     </div>
+                     <ul class="py-1" role="none">
+                        <li>
+                           <a href="#"
+                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                              role="menuitem"> Home </a>
+                        </li>
+                        <li>
+                           <a href="#"
+                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                              role="menuitem">Settings</a>
+                        </li>
+                        <li>
+                           <a href="#"
+                              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                              role="menuitem">Sign out</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
+   </nav>
+
+   <!-- SIDE BAR -->
+
+   <aside id="logo-sidebar"
+      class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+      aria-label="Sidebar">
+      <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+         <ul class="space-y-2 font-medium">
+            <li>
+               <a href="#"
+                  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9" />
+                  </svg>
+                  <span class="ms-3">Home</span>
+               </a>
+            </li>
+            <li>
+
+            </li>
+            <li>
+               <a href="#" data-modal-target="get-song-modal" data-modal-toggle="get-song-modal"
+                  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <svg class="w-[22px] h-[22px] text-gray-800 dark:text-white" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 5.757v8.486M5.757 10h8.486M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  <span class="flex-1 ms-3 whitespace-nowrap">Get a Song</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </aside>
+
+
+   <div class="p-4 sm:ml-64">
+      <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+
+         <div class="grid grid-cols-3 gap-4 mb-4">
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+         </div>
+         <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                     d="M9 1v16M1 9h16" />
+               </svg>
+            </p>
+         </div>
+         <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+         </div>
+         <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+            <p class="text-2xl text-gray-400 dark:text-gray-500">
+               <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 18 18">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                     d="M9 1v16M1 9h16" />
+               </svg>
+            </p>
+         </div>
+         <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+            <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+               <p class="text-2xl text-gray-400 dark:text-gray-500">
+                  <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 1v16M1 9h16" />
+                  </svg>
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Create Song Modal -->
+   <div id="get-song-modal" tabindex="-1" aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-3xl max-h-full">
+         <!-- Modal content -->
+         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+               <h3
+                  class="text-center text-xl font-bold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+                  Get a Song</h3>
+               <button type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="get-song-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 14 14">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+               </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
+               <div class="flex items-center justify-center w-full">
+                  <label for="dropzone-file"
+                     class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                           xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                              upload</span> or drag and drop</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                     </div>
+                     <input id="dropzone-file" type="file" class="hidden" />
+                  </label>
+               </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+               <!-- <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"> -->
+               <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" onclick="StartCamera();"
+                  type="button"
+                  class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Take
+                  Photo</button>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Webcam pop-up -->
+   <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+      class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      type="button">
+      Toggle modal
+   </button>
+
+   <div id="popup-modal" tabindex="-1"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-3xl max-h-full">
+         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button"
+               class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+               data-modal-hide="popup-modal">
+               <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 14 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+               </svg>
+               <span class="sr-only">Close modal</span>
+            </button>
+            <div class="p-4 md:p-5 text-center">
+               <div style="padding: 25px 0px 25px 0px" class="video-container" justify-contents="center"
+                  align-items="center" width="100%">
+                  <video autoplay="true" id="camera" width="100%" height="240">
+
+                  </video>
+                  <canvas id="myCanvas" width="100%" height="240"> </canvas>
+
+               </div>
+               <button type="button" onclick="freezeFrame();"
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                     <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+                     <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 3h-2l-.447-.894A2 2 0 0 0 12.764 1H7.236a2 2 0 0 0-1.789 1.106L5 3H3a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V5a2 2 0 0 0-2-2Z" />
+                  </svg>
+                  <span class="sr-only">Icon description</span>
+               </button>
+
+            </div>
+         </div>
+      </div>
+   </div>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
 
-    <script>
+   <script>
       var video = document.getElementById("camera");
       var canvas = document.getElementById("myCanvas");
       var camera = false;
@@ -277,59 +358,123 @@
       var capturedImage = false;
       var btnStart = document.getElementById("btnStart");
       var ctx = canvas.getContext('2d');
-      
+
       function StartCamera() {
-      
-      if (!camera) {
-      if (navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia(
-      {
-      video: true
-      }).then(function (stream) {
-         currentStream = stream;
-         video.srcObject = currentStream;
-         video.style.display = 'block';
-         camera = true;
-         btnStart.value = "Stop Camera";
-      }).catch(function (err) {
-      console.log(err);
-      });
+
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+         canvas.setAttribute("hidden", "hidden");
+         canvas.setAttribute("display", "hidden");
+
+         if (!camera) {
+
+            if (navigator.mediaDevices.getUserMedia) {
+               navigator.mediaDevices.getUserMedia(
+                  {
+                     video: true
+                  }).then(function (stream) {
+                     currentStream = stream;
+                     video.srcObject = currentStream;
+                     video.style.display = 'block';
+                     camera = true;
+                     btnStart.value = "Stop Camera";
+                  }).catch(function (err) {
+                     console.log(err);
+                  });
+            }
+         }
+         else {
+            camera = false;
+            currentStream.getTracks().forEach(track => track.stop());
+            video.srcObject = null;
+            btnStart.value = "Start Camera";
+         }
       }
+
+      function freezeFrame() {
+         if (camera && currentStream) {
+            const videoTrack = currentStream.getVideoTracks()[0];
+            const imageCapture = new ImageCapture(videoTrack);
+
+
+            imageCapture.grabFrame()
+               .then(imageBitmap => {
+                  canvas.width = imageBitmap.width;
+                  canvas.height = imageBitmap.height;
+                  canvas.removeAttribute("hidden");
+                  ctx.drawImage(imageBitmap, 0, 0);
+
+                  // Hide the video and show the frozen frame canvas
+                  video.style.display = 'none';
+                  canvas.style.display = 'block';
+                  revokeCameraPermission();
+                  capturedImage = true;
+
+                  // submit image
+                  canvas.toBlob(function (blob) {
+                     // Create FormData and append the image Blob
+                     const formData = new FormData();
+                     formData.append('image', blob, 'captured_image.png');
+
+                     // Make a POST request to your server
+                     fetch('/upload', {
+                        method: 'POST',
+                        body: formData,
+                     })
+                        .then(function (response) {
+                           // Handle the response from the server
+                           console.log('Image uploaded:', response);
+                        })
+                        .catch(function (error) {
+                           console.error('Error uploading image:', error);
+                        });
+                  }, 'image/png');
+                  // canvas.toBlob(function (blob) {
+                  //    // Create FormData and append the image Blob
+                  //    const formData = new FormData();
+                  //    formData.append('image', blob, 'captured_image.png');
+
+                  //    // Make a POST request to your server
+                  //    const requestOptions = {
+                  //       headers: {
+                  //          "Content-Type": blob.contentType,
+                  //       },
+                  //       mode: "no-cors",
+                  //       method: "POST",
+                  //       body: formData,
+                  //    };
+                  //    fetch('/upload', requestOptions)
+                  //       .then(function (response) {
+                  //          // Handle the response from the server
+                  //          console.log('Image uploaded:', response);
+                  //       })
+                  //       .catch(function (error) {
+                  //          console.error('Error uploading image:', error);
+                  //       });
+                  // }, 'image/png');
+
+
+               })
+               .catch(error => {
+                  console.error('Error grabbing frame:', error);
+               });
+         }
       }
-      
-      else {
-         camera = false;
-         currentStream.getTracks().forEach(track => track.stop());
-         video.srcObject = null;
-         btnStart.value = "Start Camera";
+      function revokeCameraPermission() {
+         if (currentStream) {
+            currentStream.getTracks().forEach(track => track.stop());
+            const tracks = currentStream.getTracks();
+            tracks.forEach(track => track.stop());
+            currentStream = null;
+            camera = false;
+         }
       }
-      }
-      
-      function snapshot() {
-      if (camera) {
-         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-         capturedImage = true;
-         download();
-      }
-      else
-      window.alert('Please start the camera');
-      }
-      
-      function download() {
-      if (capturedImage) {
-         var link = document.createElement('a');
-         link.download = 'Capture' + (Math.floor(Date.now() / 1000)) + '.jpg';
-         link.href = document.getElementById('myCanvas').toDataURL('image/jpeg');
-         link.click();
-      }
-      else
-         window.alert('Please capture an image to download it');
-      }
-      </script>
-    
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".png, .jpg, .jpeg">
-        <input type="submit" value="Upload">
-    </form>
+   </script>
+
+   <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".png, .jpg, .jpeg">
+      <input type="submit" value="Upload">
+   </form>
 </body>
+
 </html>
