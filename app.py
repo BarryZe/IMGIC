@@ -9,6 +9,8 @@ from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predi
 from keras.preprocessing import image
 import numpy as np
 from werkzeug.utils import secure_filename
+from musicgen import gen_music
+
 
 UPLOAD_FOLDER = 'uploads'
 model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
@@ -52,6 +54,7 @@ def upload_file():
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filename)
         results = generate_keywords(filename)
+        gen_music(results)
         # return redirect(url_for('index'))
         return str(results)
 
