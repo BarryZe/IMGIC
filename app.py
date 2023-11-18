@@ -5,15 +5,15 @@ import tensorflow as tf
 import tensorflow
 
 from tensorflow import keras
-from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
+from keras.applications.resnet_v2 import ResNet152V2, preprocess_input, decode_predictions
 from keras.preprocessing import image
 import numpy as np
 from werkzeug.utils import secure_filename
 from musicgen import gen_music
 
 
-UPLOAD_FOLDER = 'uploads'
-model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
+UPLOAD_FOLDER = 'static/uploads'
+model = ResNet152V2(weights='imagenet')    # Load the pre-trained ResNet50 model
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -54,11 +54,13 @@ def upload_file():
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filename)
         results = generate_keywords(filename)
-        gen_music(results)
-        # return redirect(url_for('index'))
+        keywords_string = ', '.join(results)
+        print(keywords_string)
+        gen_music(keywords_string)
+        return redirect(url_for('index'))
         return str(results)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000,debug=True)
     
