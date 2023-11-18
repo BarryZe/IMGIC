@@ -59,7 +59,6 @@ def upload_file():
         print(keywords_string)
         gen_music(keywords_string)
         return redirect(url_for('index'))
-        return str(results)
 
 
 if __name__ == '__main__':
