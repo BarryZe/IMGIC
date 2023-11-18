@@ -16,6 +16,7 @@ UPLOAD_FOLDER = 'static/uploads'
 model = ResNet152V2(weights='imagenet')    # Load the pre-trained ResNet50 model
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'random string'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def generate_keywords(image_path):
