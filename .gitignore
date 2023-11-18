@@ -1,4 +1,4 @@
 client_info.env
-# static/uploads/**
+static/uploads/**
 static/output/**
 __pycache__/**
