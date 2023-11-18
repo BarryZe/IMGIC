@@ -54,11 +54,13 @@ def upload_file():
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filename)
         results = generate_keywords(filename)
-        gen_music(results)
+        keywords_string = ', '.join(results)
+        print(keywords_string)
+        gen_music(keywords_string)
         # return redirect(url_for('index'))
         return str(results)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000,debug=True)
     
