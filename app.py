@@ -12,7 +12,7 @@ from werkzeug.utils import secure_filename
 from musicgen import gen_music
 
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = 'static/uploads'
 model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
 
 app = Flask(__name__)
