@@ -34,14 +34,6 @@ def generate_keywords(image_path):
 
     return keywords
 
-
-# @app.route('/', methods=['GET'])
-# def homepage():
-#     # image_path = 'cat picture.jpg'
-#     # result_keywords = generate_keywords(image_path)
-#     # return "Keywords for the image:"+str(result_keywords)
-#     return render_template('index.html')
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -63,6 +55,6 @@ def upload_file():
         return str(results)
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
     
