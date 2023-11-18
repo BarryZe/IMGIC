@@ -1,6 +1,6 @@
 import cv2
 import os
-from flask import Flask, render_template, request
+# from flask import Flask, render_template, request
 import tensorflow as tf
 import tensorflow
 
@@ -11,7 +11,7 @@ import numpy as np
 
 image_path = 'cat picture.jpg'
 model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
 def generate_keywords(image_path):
@@ -32,12 +32,12 @@ def generate_keywords(image_path):
 
     return keywords
 
-@app.route('/')
-def create_app():
-    image_path = 'cat picture.jpg'
-    result_keywords = generate_keywords(image_path)
-    return "Keywords for the image:"+str(result_keywords)
+# @app.route('/')
+# def create_app():
+#     image_path = 'cat picture.jpg'
+#     result_keywords = generate_keywords(image_path)
+#     return "Keywords for the image:"+str(result_keywords)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
     
