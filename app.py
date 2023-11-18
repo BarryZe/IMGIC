@@ -40,6 +40,7 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    print(request.files)
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
