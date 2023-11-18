@@ -1,4 +1,6 @@
 import cv2
+import os
+from flask import Flask, render_template, request
 import tensorflow as tf
 import tensorflow
 
@@ -6,10 +8,11 @@ from tensorflow import keras
 from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
 from keras.preprocessing import image
 import numpy as np
-image_path = 'cat picture.jpg'
 
-# Load the pre-trained ResNet50 model
-model = ResNet50(weights='imagenet')
+image_path = 'cat picture.jpg'
+model = ResNet50(weights='imagenet')    # Load the pre-trained ResNet50 model
+app = Flask(__name__)
+
 
 def generate_keywords(image_path):
     # Load and preprocess the image
@@ -29,8 +32,12 @@ def generate_keywords(image_path):
 
     return keywords
 
-# Replace 'your_image.jpg' with the path to your image file
-image_path = 'cat picture.jpg'
-result_keywords = generate_keywords(image_path)
+@app.route('/')
+def create_app():
+    image_path = 'cat picture.jpg'
+    result_keywords = generate_keywords(image_path)
+    return "Keywords for the image:"+str(result_keywords)
 
-print("Keywords for the image:", result_keywords)
+if __name__ == '__main__':
+    app.run(debug=True)
+    
