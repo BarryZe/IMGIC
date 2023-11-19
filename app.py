@@ -61,6 +61,7 @@ def upload_file():
         results = generate_alt_text(filename)
         prompt = "A song about" + results[12:]
         print("Prompt: " + prompt)
+        print(filename)
         gen_music(prompt, filename)
         return redirect(url_for('index'))
     
