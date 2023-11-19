@@ -1,26 +1,14 @@
-import cv2
 import os
 from flask import Flask, render_template, request, flash, redirect, url_for
-import tensorflow as tf
-import tensorflow
 from PIL import Image
 from tensorflow import keras
-from keras.applications.vgg19 import VGG19, preprocess_input, decode_predictions
 from keras.preprocessing import image
-import numpy as np
 from musicgen import gen_music
 from PIL import Image
-
-import transformers
-from transformers import BloomForCausalLM
-from transformers import BloomTokenizerFast
-import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
 UPLOAD_FOLDER = 'static/uploads'
 TEMP_FOLDER = 'static/temp'
-
-    # Load the pre-trained ResNet50 model
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'random string'
@@ -82,8 +70,6 @@ def crop_image_to_square(source_path, destination_path):
 
     # Save the cropped image back to the file
     cropped_img.save(destination_path)
-
-
 
 if __name__ == '__main__':
     app.run(port=8000,debug=True)
