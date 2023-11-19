@@ -118,16 +118,13 @@
    <div class="p-4 sm:ml-64">
       <div class="p-4 mt-14">
          <div id="gallery" class="grid grid-cols-4 md:grid-cols-3 gap-4">
+            {% for image in init_files %}
             <div class="card-container">
-               <div class="gallery-block" onclick="toggle_play('cat')">
-                  <img src="static/uploads/cat.jpg">
+               <div class="gallery-block" onclick="toggle_play('{{ image }}'.split('.')[0])">
+                  <img src="static/uploads/{{ image }}">
                </div>
             </div>
-            <div class="card-container">
-               <div class="gallery-block" onclick="toggle_play('balloons')">
-                  <img src="static/uploads/balloons.jpg">
-               </div>
-            </div>
+            {% endfor %}
          </div>
       </div>
    </div>

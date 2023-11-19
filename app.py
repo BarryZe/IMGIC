@@ -29,7 +29,10 @@ def generate_alt_text(image_path):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    image_files = os.listdir('static/uploads')
+    audio_files = os.listdir('static/output')
+    init_files = [pic for pic in image_files if (pic.split('.')[0] + ".wav") in audio_files]
+    return render_template('index.html', init_files=init_files)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
