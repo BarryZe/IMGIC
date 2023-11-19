@@ -247,6 +247,7 @@
       var btnStart = document.getElementById("btnStart");
       var ctx = canvas.getContext('2d');
       var gallery = document.getElementById("gallery");
+      var current_playing = null;
 
       function StartCamera() {
 
@@ -382,8 +383,6 @@
          node_div.className = "gallery-block";
          gallery.insertBefore(node, gallery.firstChild);
 
-         
-
          setTimeout(() => {
             const node_img = node_div.appendChild(document.createElement("img"));
             node_img.src = filename;
@@ -394,10 +393,19 @@
       }
 
       function toggle_play(name) {
+         console.log(current_playing);
          var audio_filename = 'static/output/' + name + '.wav';
+         if (current_playing != null) {
+            current_playing.pause();
+            if (current_playing.src.includes(audio_filename)) {
+               current_playing = null;
+               return;
+            };
+            current_playing = null;
+         }
          try {
-            var audio = new Audio(audio_filename);
-            audio.play();
+            current_playing = new Audio(audio_filename);
+            current_playing.play();
          } catch (error) {
             console.log("Audio not available yet");
          }
