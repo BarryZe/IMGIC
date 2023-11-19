@@ -19,6 +19,7 @@ UPLOAD_FOLDER = 'static/uploads'
     # Load the pre-trained ResNet50 model
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'random string'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def generate_alt_text(image_path):
