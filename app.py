@@ -50,7 +50,6 @@ def upload_file():
     if file:
         filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filename)
-        brightness_value = calculate_brightness(filename)
         results = generate_alt_text(filename)
         prompt = "A song about" + results[12:]
         print("Prompt: " + prompt)
