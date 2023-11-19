@@ -382,6 +382,8 @@
          node_div.className = "gallery-block";
          gallery.insertBefore(node, gallery.firstChild);
 
+         
+
          setTimeout(() => {
             const node_img = node_div.appendChild(document.createElement("img"));
             node_img.src = filename;
@@ -397,7 +399,7 @@
             var audio = new Audio(audio_filename);
             audio.play();
          } catch (error) {
-            console.log(error);
+            console.log("Audio not available yet");
          }
       }
 
