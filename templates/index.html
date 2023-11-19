@@ -311,21 +311,31 @@
                   canvas.toBlob(function (blob) {
                      // Create FormData and append the image Blob
                      const formData = new FormData();
-                     formData.append('image', blob, 'captured_image.png');
+                     const filename = Date.now() + ".png"
+                     formData.append('file', blob, filename);
 
-                     // Make a POST request to your server
-                     fetch('/upload', {
-                        method: 'POST',
+                     const requestOptions = {
+                        headers: {
+                           "Content-Type": "image/png",
+                        },
+                        mode: "no-cors",
+                        method: "POST",
+                        files: blob,
                         body: formData,
-                     })
-                        .then(function (response) {
-                           // Handle the response from the server
-                           console.log('Image uploaded:', response);
-                        })
-                        .catch(function (error) {
-                           console.error('Error uploading image:', error);
-                        });
+                     };
+                     console.log(requestOptions);
+
+                     FlowbiteInstances.getInstance('Modal', 'get-song-modal').hide();
+
+                     fetch("/upload", requestOptions).then(
+                        (response) => {
+                           console.log(response.data);
+                        }
+                     );
+
+                     add_to_gallery("static/uploads/" + filename);
                   }, 'image/png');
+
                })
                .catch(error => {
                   console.error('Error grabbing frame:', error);
@@ -382,8 +392,14 @@
          setTimeout(() => {
             const node_img = node_div.appendChild(document.createElement("img"));
             node_img.src = filename;
+            node_img.className = "object-cover w-full h-full";
+
          }, 2000);
-         console.log(gallery.innterHTML);
+
+         // setTimeout(() => {
+         //    const node_img = node_div.appendChild(document.createElement("img"));
+         //    node_img.src = filename;
+         // }, 20000);
       }
 
       function playAudio(name) {
@@ -429,14 +445,16 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      width: 200px;
+      height: 200px;
    }
 
    .gallery-block img {
-      /* background-size: cover;
-         background-repeat: no-repeat;
-         background-position: center; */
       width: 80%;
-      padding: 40px 0px 150px 0px;
+      height: auto;
+      object-fit: cover;
+
+      /* padding: 40px 0px 150px 0px; */
 
    }
 
