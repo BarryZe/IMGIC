@@ -119,15 +119,13 @@
       <div class="p-4 mt-14">
          <div id="gallery" class="grid grid-cols-4 md:grid-cols-3 gap-4">
             <div class="card-container">
-                  <div class="gallery-block">
+                  <div class="gallery-block" onclick="toggle_play('cat')">
                      <img src="static/uploads/cat.jpg">
-                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
             </div>
             <div class="card-container">
-                  <div class="gallery-block">
+                  <div class="gallery-block" onclick="toggle_play('balloons')">
                      <img src="static/uploads/balloons.jpg">
-                     <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
             </div>
          </div>
@@ -387,18 +385,20 @@
          setTimeout(() => {
             const node_img = node_div.appendChild(document.createElement("img"));
             node_img.src = filename;
+            node_img.onclick = function () {
+               toggle_play(filename.split("/").pop().split(".")[0]);
+            };
          }, 2000);
-
-         // setTimeout(() => {
-         //    const node_img = node_div.appendChild(document.createElement("img"));
-         //    node_img.src = filename;
-         // }, 20000);
       }
 
-      function playAudio(name) {
+      function toggle_play(name) {
          var audio_filename = 'static/output/' + name + '.wav';
-         var audio = new Audio(audio_filename);
-         audio.play();
+         try {
+            var audio = new Audio(audio_filename);
+            audio.play();
+         } catch (error) {
+            console.log(error);
+         }
       }
 
       function dragOverHandler(event) {
