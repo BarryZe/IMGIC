@@ -1,3 +1,5 @@
 static/uploads/**
 static/output/**
+static/temp/**
 __pycache__/**
+.ds_store

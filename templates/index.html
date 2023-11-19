@@ -119,22 +119,16 @@
       <div class="p-4 mt-14">
          <div id="gallery" class="grid grid-cols-4 md:grid-cols-3 gap-4">
             <div class="card-container">
-               <a
-                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
                      <img src="static/uploads/cat.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
-               </a>
             </div>
             <div class="card-container">
-               <a href="#"
-                  class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div class="gallery-block">
                      <img src="static/uploads/balloons.jpg">
                      <!-- <audio controls src="static/output/cat picture.wav"></audio> -->
                   </div>
-               </a>
             </div>
          </div>
       </div>
@@ -291,19 +285,22 @@
       function freezeFrame() {
          if (camera && currentStream) {
             const videoTrack = currentStream.getVideoTracks()[0];
-            const imageCapture = new ImageCapture(videoTrack);
-
+            const imageCapture = new ImageCapture(videoTrack)
 
             imageCapture.grabFrame()
                .then(imageBitmap => {
-                  canvas.width = imageBitmap.width;
-                  canvas.height = imageBitmap.height;
-                  canvas.removeAttribute("hidden");
-                  ctx.drawImage(imageBitmap, 0, 0);
+                  canvas.width = Math.min(imageBitmap.width, imageBitmap.height);
+                  canvas.height = Math.min(imageBitmap.width, imageBitmap.height);
+                  // canvas.removeAttribute("hidden");
+                  ctx.drawImage(
+                     imageBitmap,
+                    0, 0,              // Position to draw the cropped image on the canvas
+                  )
+                  ;
 
                   // Hide the video and show the frozen frame canvas
                   video.style.display = 'none';
-                  canvas.style.display = 'block';
+                  // canvas.style.display = 'block';
                   revokeCameraPermission();
                   capturedImage = true;
 
@@ -311,21 +308,31 @@
                   canvas.toBlob(function (blob) {
                      // Create FormData and append the image Blob
                      const formData = new FormData();
-                     formData.append('image', blob, 'captured_image.png');
+                     const filename = Date.now() + ".png"
+                     formData.append('file', blob, filename);
 
-                     // Make a POST request to your server
-                     fetch('/upload', {
-                        method: 'POST',
+                     const requestOptions = {
+                        headers: {
+                           "Content-Type": "image/png",
+                        },
+                        mode: "no-cors",
+                        method: "POST",
+                        files: blob,
                         body: formData,
-                     })
-                        .then(function (response) {
-                           // Handle the response from the server
-                           console.log('Image uploaded:', response);
-                        })
-                        .catch(function (error) {
-                           console.error('Error uploading image:', error);
-                        });
+                     };
+                     console.log(requestOptions);
+
+                     FlowbiteInstances.getInstance('Modal', 'get-song-modal').hide();
+
+                     fetch("/upload", requestOptions).then(
+                        (response) => {
+                           console.log(response.data);
+                        }
+                     );
+
+                     add_to_gallery("static/uploads/" + filename);
                   }, 'image/png');
+
                })
                .catch(error => {
                   console.error('Error grabbing frame:', error);
@@ -373,9 +380,7 @@
          console.log("Adding image from " + filename);
          const node = document.createElement("div");
          node.className = "card-container";
-         const node_a = node.appendChild(document.createElement("a"));
-         node_a.className = "block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700";
-         const node_div = node_a.appendChild(document.createElement("div"));
+         const node_div = node.appendChild(document.createElement("div"));
          node_div.className = "gallery-block";
          gallery.insertBefore(node, gallery.firstChild);
 
@@ -383,7 +388,11 @@
             const node_img = node_div.appendChild(document.createElement("img"));
             node_img.src = filename;
          }, 2000);
-         console.log(gallery.innterHTML);
+
+         // setTimeout(() => {
+         //    const node_img = node_div.appendChild(document.createElement("img"));
+         //    node_img.src = filename;
+         // }, 20000);
       }
 
       function playAudio(name) {
@@ -432,17 +441,22 @@
    }
 
    .gallery-block img {
-      /* background-size: cover;
-         background-repeat: no-repeat;
-         background-position: center; */
       width: 80%;
-      padding: 40px 0px 150px 0px;
-
    }
 
    .card-container {
-      margin: 0px 15px 0px 15px;
+      background-color: white;
+      border: 1px; 
+      border-style: solid;
+      border-color: lightgray;
+      border-radius: 10px;
+      padding: 20px 10px 20px 10px;
    }
+
+   .card-container:hover {
+      background-color: rgba(185, 185, 185, 0.2);
+   }
+   
 </style>
 
 </html>
