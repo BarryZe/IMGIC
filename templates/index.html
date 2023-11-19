@@ -392,7 +392,7 @@
             };
          }, 2000);
 
-         var audio_filename = 'static/output/' + filename.split("/").pop().split(".")[0] + '.wav';
+         var audio_filename = '/static/output/' + filename.split("/").pop().split(".")[0] + '.wav';
          audio_loading(audio_filename, node_div, node_img, 500);
       }
 
@@ -405,6 +405,7 @@
 
             // Make a GET request to the file path
             const response = await fetch(filePath);
+            console.log(response);
 
             // Check if the response status is not 404 (replace this with your actual condition)
             if (response.status !== 404) {
@@ -427,7 +428,7 @@
          }
 
          // Start the initial delay and file check
-         return new Promise(resolve => setTimeout(resolve, delay*60)).then(checkFile);
+         return new Promise(resolve => setTimeout(resolve, delay)).then(checkFile);
       }
 
       function toggle_play(name) {
