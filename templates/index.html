@@ -113,21 +113,16 @@
       </div>
    </aside>
 
-
-
    <div class="p-4 sm:ml-64">
       <div class="p-4 mt-14">
          <div id="gallery" class="grid grid-cols-4 md:grid-cols-3 gap-4">
+            {% for image in init_files %}
             <div class="card-container">
-               <div class="gallery-block" onclick="toggle_play('cat')">
-                  <img src="static/uploads/cat.jpg">
+               <div class="gallery-block" onclick="toggle_play('{{ image }}'.split('.')[0])">
+                  <img src="static/uploads/{{ image }}">
                </div>
             </div>
-            <div class="card-container">
-               <div class="gallery-block" onclick="toggle_play('balloons')">
-                  <img src="static/uploads/balloons.jpg">
-               </div>
-            </div>
+            {% endfor %}
          </div>
       </div>
    </div>
@@ -167,9 +162,9 @@
                         </svg>
                         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
                               upload</span></p>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, SVG or GIF</p>
                      </div>
-                     <input id="dropzone-file" type="file" class="hidden" oninput="upload_file()"
+                     <input id="dropzone-file" type="file" accept="image/*" class="hidden" oninput="upload_file()"
                         ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" />
                   </label>
                </div>
@@ -188,11 +183,11 @@
    </div>
 
    <!-- Webcam pop-up -->
-   <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+   <!-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
       class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       type="button">
       Toggle modal
-   </button>
+   </button> -->
 
    <div id="popup-modal" tabindex="-1"
       class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -400,6 +395,10 @@
          const delay = 20 * 1000; // 20 sec in milliseconds
          let attempts = 0;
 
+         const node_loading = node_div.appendChild(document.createElement("img"));
+         node_loading.src = "/static/assets/loading.gif";
+         node_loading.style.position = "absolute";
+
          async function checkFile() {
             attempts++;
 
@@ -411,6 +410,7 @@
             if (response.status !== 404) {
                console.log('File found!');
                node_img.style.opacity = 1;
+               node_loading.remove();
                // Perform actions with the file, or return a promise if needed
                return Promise.resolve(filePath);
             }
@@ -487,6 +487,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
    }
 
    .gallery-block img {
