@@ -1,1 +1,0 @@
-Website to generate music from an image
