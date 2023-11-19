@@ -9,5 +9,5 @@ def gen_music(descriptions, filename):
 
     for idx, one_wav in enumerate(wav):
         # Save file, with loudness normalization at -14 db LUFS.
-        name = filename.split('\\')[-1].split('.')[0]
+        name = filename[14:].split('.')[0]
         audio_write(f'static/output/{name}', one_wav.cpu(), model.sample_rate, strategy="loudness")
